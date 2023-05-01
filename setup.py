@@ -21,6 +21,7 @@ base_requirements = {
     "loguru",
     "pandas",
     "SQLAlchemy~=1.4",
+    "wheel",
 }
 
 dev = {"isort", "pre-commit", "ruff", "black", "pycln"}
