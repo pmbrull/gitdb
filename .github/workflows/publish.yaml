@@ -25,6 +25,7 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           make install
+          pip install wheel twine
 
           python setup.py install sdist bdist_wheel; \
           twine check dist/*; \
