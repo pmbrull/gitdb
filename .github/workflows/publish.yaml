@@ -1,0 +1,31 @@
+name: Publish git-db
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install Ubuntu related dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y libsasl2-dev unixodbc-dev python3-venv
+      - name: Install and Publish PyPi packages
+        env:
+          TWINE_USERNAME: '${{ secrets.TWINE_USERNAME }}'
+          TWINE_PASSWORD: '${{ secrets.TWINE_PASSWORD }}'
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          make install
+
+          python setup.py install sdist bdist_wheel; \
+          twine check dist/*; \
+          twine upload dist/* --verbose

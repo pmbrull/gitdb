@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-PROJECT_DIR := template/
+PROJECT_DIR := gitdb/
 
 .PHONY: help
 help:
@@ -21,11 +21,7 @@ precommit_install:  ## Install the project's precommit hooks from .pre-commit-co
 
 .PHONY: lint
 lint:  ## Run linting
-	pylint $(PROJECT_DIR)
-
-.PHONY: type
-type:  ## Run type check
-	pyright $(PROJECT_DIR)
+	ruff check $(PROJECT_DIR)
 
 .PHONY: py_format
 py_format:  ## Run black and isort to format the Python codebase
