@@ -3,7 +3,7 @@ Handle stars data
 """
 from typing import Any, Dict, List
 
-from sqlalchemy import Column, Integer, Sequence, String
+from sqlalchemy import Column, Integer, Sequence, String, BigInteger
 from sqlalchemy.orm import DeclarativeMeta, Session
 
 from gitdb.api.client import APIClient
@@ -29,7 +29,7 @@ class ContributorsDAO(ModelDAO):
 
             __tablename__ = "contributors"
 
-            id = Column(Integer, Sequence("contributors_id_sequence"), primary_key=True)
+            id = Column(BigInteger, Sequence("contributors_id_sequence"), primary_key=True)
             contributions = Column(Integer)
             user_id = Column(Integer)
             user_login = Column(String)
