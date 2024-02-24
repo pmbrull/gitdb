@@ -1,6 +1,7 @@
 name: Publish git-db
 
 on:
+  workflow_dispatch:
   release:
     types: [ published ]
 
