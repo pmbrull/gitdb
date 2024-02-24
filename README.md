@@ -14,7 +14,7 @@ Our goal with **Git DB** is to focus on simplicity and flexibility:
 ## Installation
 
 ```bash
-pip install git-db
+pip install PyGitDB
 ```
 
 ## What will you find?
