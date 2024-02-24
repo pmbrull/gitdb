@@ -4,7 +4,7 @@ Handle commit data
 from datetime import datetime, timedelta
 from typing import Dict, List
 
-from sqlalchemy import Column, DateTime, Integer, Sequence
+from sqlalchemy import Column, DateTime, Integer, Sequence, BigInteger
 from sqlalchemy.orm import DeclarativeMeta, Session
 
 from gitdb.api.client import APIClient
@@ -32,7 +32,7 @@ class WeeklyCommitsDAO(ModelDAO):
 
             __tablename__ = "weekly_commits"
 
-            id = Column(Integer, Sequence("commits_id_sequence"), primary_key=True)
+            id = Column(BigInteger, Sequence("commits_id_sequence"), primary_key=True)
             date = Column(DateTime)
             commits = Column(Integer)
 

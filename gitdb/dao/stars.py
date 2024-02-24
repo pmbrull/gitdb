@@ -3,7 +3,7 @@ Handle stars data
 """
 from typing import Any, Dict, List
 
-from sqlalchemy import Column, DateTime, Integer, Sequence, String
+from sqlalchemy import Column, DateTime, Integer, Sequence, String, BigInteger
 from sqlalchemy.orm import DeclarativeMeta, Session
 
 from gitdb.api.client import APIClient
@@ -35,7 +35,7 @@ class StarsDAO(ModelDAO):
 
             __tablename__ = "stargazers"
 
-            id = Column(Integer, Sequence("stargazers_id_sequence"), primary_key=True)
+            id = Column(BigInteger, Sequence("stargazers_id_sequence"), primary_key=True)
             starred_at = Column(DateTime)
             user_id = Column(Integer)
             user_login = Column(String)

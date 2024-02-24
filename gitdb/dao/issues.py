@@ -3,7 +3,7 @@ Handle stars data
 """
 from typing import Any, Dict, List
 
-from sqlalchemy import ARRAY, Column, DateTime, Integer, String
+from sqlalchemy import ARRAY, Column, DateTime, Integer, String, BigInteger
 from sqlalchemy.orm import DeclarativeMeta, Session
 
 from gitdb.api.client import APIClient
@@ -38,7 +38,7 @@ class IssuesDAO(ModelDAO):
 
             __tablename__ = "issues"
 
-            id = Column(Integer, primary_key=True)
+            id = Column(BigInteger, primary_key=True)
             number = Column(Integer, primary_key=True)
             title = Column(String)
             body = Column(String)
@@ -62,7 +62,7 @@ class IssuesDAO(ModelDAO):
 
             __tablename__ = "pulls"
 
-            id = Column(Integer, primary_key=True)
+            id = Column(BigInteger, primary_key=True)
             number = Column(Integer, primary_key=True)
             title = Column(String)
             body = Column(String)

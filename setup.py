@@ -26,8 +26,8 @@ base_requirements = {
 dev = {"isort", "pre-commit", "ruff", "black", "pycln"}
 
 setup(
-    name="git-db",
-    version="0.1.0",
+    name="PyGitDB",
+    version="0.1.1",
     description="Load git stats into a DuckDB db locally for easy analytics.",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",

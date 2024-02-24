@@ -4,7 +4,7 @@ Handle stars data
 from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel
-from sqlalchemy import Column, DateTime, Integer, Sequence, String
+from sqlalchemy import Column, DateTime, Integer, Sequence, String, BigInteger
 from sqlalchemy.orm import DeclarativeMeta, Session
 
 from gitdb.api.client import APIClient
@@ -69,7 +69,7 @@ class ReviewsDAO(ModelDAO):
 
             __tablename__ = "latest_reviews"
 
-            id = Column(Integer, Sequence("review_id_seq"), primary_key=True)
+            id = Column(BigInteger, Sequence("review_id_seq"), primary_key=True)
             number = Column(Integer)
             reviewer = Column(String)
             review_state = Column(String)
